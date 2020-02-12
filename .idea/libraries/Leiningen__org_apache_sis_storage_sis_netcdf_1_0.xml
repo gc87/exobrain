@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.apache.sis.storage/sis-netcdf:1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/sis/storage/sis-netcdf/1.0/sis-netcdf-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: javax.measure/unit-api:1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/measure/unit-api/1.0/unit-api-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

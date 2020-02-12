@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.opengis/geoapi:3.0.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opengis/geoapi/3.0.1/geoapi-3.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

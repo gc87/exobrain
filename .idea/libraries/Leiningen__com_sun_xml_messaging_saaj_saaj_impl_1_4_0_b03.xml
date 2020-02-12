@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.sun.xml.messaging.saaj/saaj-impl:1.4.0-b03">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/messaging/saaj/saaj-impl/1.4.0-b03/saaj-impl-1.4.0-b03.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: cnuernber/libpython-clj:1.36">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cnuernber/libpython-clj/1.36/libpython-clj-1.36.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

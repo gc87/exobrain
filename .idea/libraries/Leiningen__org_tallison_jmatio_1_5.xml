@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.tallison/jmatio:1.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/tallison/jmatio/1.5/jmatio-1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
