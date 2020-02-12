@@ -8,17 +8,10 @@
                  [org.xerial/sqlite-jdbc "3.30.1"]
                  [kotyo/clj-rocksdb "0.1.3"]
                  [com.taoensso/nippy "2.14.0"]
-                 [clj-http "3.10.0"]
-                 [org.clojure/data.json "0.2.7"]
-                 [org.clojars.hozumi/clj-commons-exec "1.2.0"]
-                 [org.apache.tika/tika-core "1.23"]
-                 [org.apache.tika/tika-parsers "1.23"]
                  [org.jsoup/jsoup "1.12.1"]
                  [cljfx "1.6.2"]
-                 [cnuernber/libpython-clj "1.36"]
-                 [clojupyter "0.3.1"]]
+                 [cnuernber/libpython-clj "1.36"]]
   :main exobrain.core
   ;:aot [exobrain.ui]
-  ;:plugins [[lein-jupyter "0.1.16"]]
   :profiles {:uberjar {:aot :all}}
   :repl-options {:init-ns exobrain.core})
