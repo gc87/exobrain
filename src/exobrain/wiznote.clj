@@ -4,7 +4,7 @@
             [clojure.edn :as edn]
             [clojure.java.jdbc :as jdbc]
             [exobrain.store :as store]
-            [exobrain.tika :as tika])
+            [exobrain.parse :as tika])
   (:import (java.util.zip ZipEntry ZipFile ZipInputStream)))
 
 (defn db-path
@@ -34,15 +34,6 @@
   (jdbc/with-db-connection [conn db-spec]
                            (jdbc/query conn "select * from WIZ_DOCUMENT order by DT_CREATED desc")))
 
-(defn wiz-is-valid
-  [file]
-  (try (ZipFile. file)
-        (catch Exception e nil)))
-
-;; C:\Users\chun\Documents\My Knowledge\Data\sfme@qq.com\My Notes\one.ziw
-;; C:\\Users\\chun\\Documents\\My Knowledge\\Data\\sfme@qq.com\\微信收藏\\特斯拉嫌弃 Python，追捧 C++.ziw
-;; (def file-w (io/file ""))
-
 (defn wiz-file-process
   [file]
   (let [zip-file (try (ZipFile. file) (catch Exception e nil))
@@ -52,7 +43,9 @@
         input (if (or (nil? zip-file) (nil? zip-entry))
                 nil
                 (.getInputStream zip-file zip-entry))]
-    (when-not (nil? input) (println (slurp input)))))
+    (when-not (nil? input)
+      (println (tika/extract-text input))
+      (.close input))))
 
 (defn wiz-document-process
   [wiz-data-dir user row]
@@ -79,4 +72,8 @@
                                    (wiz-document-process wiz-data-dir user row)))
     (when (db-exists wiz-db-dir) (delete-db wiz-db-dir))))
 
-(sync! "sfme@qq.com")
+(comment
+  (def file-w (io/file "C:\\Users\\chun\\Documents\\My Knowledge\\Data\\sfme@qq.com\\My Notes\\one.ziw"))
+  (def file-w (io/file "C:\\Users\\chun\\Documents\\My Knowledge\\Data\\sfme@qq.com\\微信收藏\\特斯拉嫌弃 Python，追捧 C++.ziw"))
+
+  (sync! "sfme@qq.com"))

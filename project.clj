@@ -13,6 +13,7 @@
                  [org.clojars.hozumi/clj-commons-exec "1.2.0"]
                  [org.apache.tika/tika-core "1.23"]
                  [org.apache.tika/tika-parsers "1.23"]
+                 [org.jsoup/jsoup "1.12.1"]
                  [cljfx "1.6.2"]
                  [cnuernber/libpython-clj "1.36"]
                  [clojupyter "0.3.1"]]
