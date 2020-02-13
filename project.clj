@@ -9,6 +9,7 @@
                  [kotyo/clj-rocksdb "0.1.3"]
                  [com.taoensso/nippy "2.14.0"]
                  [org.jsoup/jsoup "1.12.1"]
+                 [clucie "0.4.2"]
                  [cljfx "1.6.2"]
                  [cnuernber/libpython-clj "1.36"]]
   :main exobrain.core
