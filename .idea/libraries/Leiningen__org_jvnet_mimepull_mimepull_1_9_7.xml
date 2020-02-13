@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.jvnet.mimepull/mimepull:1.9.7">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/mimepull/mimepull/1.9.7/mimepull-1.9.7.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

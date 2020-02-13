@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: javax.xml.soap/javax.xml.soap-api:1.4.0">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/soap/javax.xml.soap-api/1.4.0/javax.xml.soap-api-1.4.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

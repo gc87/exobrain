@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: funcool/cats:2.3.2">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/funcool/cats/2.3.2/cats-2.3.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
