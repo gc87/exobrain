@@ -1,10 +1,9 @@
 (ns exobrain.wiznote
-  (:require [clj-http.client :as client]
-            [clojure.java.io :as io]
+  (:require [clojure.java.io :as io]
             [clojure.edn :as edn]
             [clojure.java.jdbc :as jdbc]
             [exobrain.store :as store]
-            [exobrain.parse :as tika])
+            [exobrain.parse :as parse])
   (:import (java.util.zip ZipEntry ZipFile ZipInputStream)))
 
 (defn db-path
@@ -44,7 +43,7 @@
                 nil
                 (.getInputStream zip-file zip-entry))]
     (when-not (nil? input)
-      (println (tika/extract-text input))
+      (println (parse/extract-text input))
       (.close input))))
 
 (defn wiz-document-process
@@ -62,7 +61,7 @@
                        windows-dir)
         wiz-db-dir (.getPath (io/file (System/getProperty "user.home")
                                       ".exobrain"
-                                      "wizdb"))
+                                      "temp"))
         db-spec {:classname   "org.sqlite.JDBC"
                  :subprotocol "sqlite"
                  :subname     (.getPath (io/file wiz-db-dir "index.db"))}]
