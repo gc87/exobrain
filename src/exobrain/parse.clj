@@ -22,6 +22,13 @@
 (initialize! :python-executable python-executable
              :library-path library-path)
 
+;seg_list = jieba.cut("我来到北京清华大学", cut_all=True)
+(def jieba (import-module "jieba"))
+(call-attr jieba "enable_paddle")
+(def seg-list (call-attr jieba "cut" "我来到北京清华大学"))
+(att-type-map seg-list)
+(call-attr seg-list "__next__")
+
 (defn extract-text
   [is]
   (.text (Jsoup/parse is "UTF-8" "")))
