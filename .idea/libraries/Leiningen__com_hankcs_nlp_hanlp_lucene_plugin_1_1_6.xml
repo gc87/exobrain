@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.hankcs.nlp/hanlp-lucene-plugin:1.1.6">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/hankcs/nlp/hanlp-lucene-plugin/1.1.6/hanlp-lucene-plugin-1.1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

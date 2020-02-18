@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: com.hankcs/hanlp:portable-1.7.6">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/hankcs/hanlp/portable-1.7.6/hanlp-portable-1.7.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -16,11 +16,11 @@
     <orderEntry type="library" name="Leiningen: byte-streams:0.2.4" level="project" />
     <orderEntry type="library" name="Leiningen: camel-snake-kebab:0.4.0" level="project" />
     <orderEntry type="library" name="Leiningen: clj-tuple:0.2.2" level="project" />
-    <orderEntry type="library" name="Leiningen: cljfx:1.6.2" level="project" />
-    <orderEntry type="library" name="Leiningen: cljfx:1.6.2:jdk11" level="project" />
     <orderEntry type="library" name="Leiningen: clojure-complete:0.2.5" level="project" />
     <orderEntry type="library" name="Leiningen: clucie:0.4.2" level="project" />
     <orderEntry type="library" name="Leiningen: cnuernber/libpython-clj:1.36" level="project" />
+    <orderEntry type="library" name="Leiningen: com.hankcs.nlp/hanlp-lucene-plugin:1.1.6" level="project" />
+    <orderEntry type="library" name="Leiningen: com.hankcs/hanlp:portable-1.7.6" level="project" />
     <orderEntry type="library" name="Leiningen: com.ibm.icu/icu4j:62.1" level="project" />
     <orderEntry type="library" name="Leiningen: com.taoensso/encore:2.93.0" level="project" />
     <orderEntry type="library" name="Leiningen: com.taoensso/nippy:2.14.0" level="project" />
@@ -63,16 +63,6 @@
     <orderEntry type="library" name="Leiningen: org.clojure/tools.reader:1.1.1" level="project" />
     <orderEntry type="library" name="Leiningen: org.iq80.snappy/snappy:0.4" level="project" />
     <orderEntry type="library" name="Leiningen: org.jsoup/jsoup:1.12.1" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-base:13" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-base:13:win" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-controls:13" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-controls:13:win" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-graphics:13" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-graphics:13:win" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-media:13" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-media:13:win" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-web:13" level="project" />
-    <orderEntry type="library" name="Leiningen: org.openjfx/javafx-web:13:win" level="project" />
     <orderEntry type="library" name="Leiningen: org.ow2.asm/asm:5.2" level="project" />
     <orderEntry type="library" name="Leiningen: org.rocksdb/rocksdbjni:5.15.10" level="project" />
     <orderEntry type="library" name="Leiningen: org.tukaani/xz:1.6" level="project" />

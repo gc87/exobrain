@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.openjfx/javafx-graphics:13:win">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/13/javafx-graphics-13-win.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
