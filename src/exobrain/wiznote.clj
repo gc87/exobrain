@@ -34,7 +34,7 @@
                            (jdbc/query conn "select * from WIZ_DOCUMENT order by DT_CREATED desc")))
 
 (defn wiz-file-process
-  [file]
+  [file key title]
   (let [zip-file (try (ZipFile. file) (catch Exception e nil))
         zip-entry (if (nil? zip-file)
                     nil
@@ -43,12 +43,15 @@
                 nil
                 (.getInputStream zip-file zip-entry))]
     (when-not (nil? input)
-      (println (parse/extract-text input))
+      ;(println (parse/extract-text input))
+      (parse/add-index key title (parse/extract-text input))
       (.close input))))
 
 (defn wiz-document-process
   [wiz-data-dir user row]
-  (wiz-file-process (io/file wiz-data-dir user (:document_location row) (:document_name row))))
+  (wiz-file-process (io/file wiz-data-dir user (:document_location row) (:document_name row))
+                    (:document_guid row)
+                    (:document_title row)))
 
 (defn sync!
   [user]
