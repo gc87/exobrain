@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="exobrain" default="all">
+  
+  
+  <property file="exobrain.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.klib"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/dev-resources:*"/>
+    <exclude name="**/resources:*"/>
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.11.0.3" value="${jdk.home.11.0.3}/bin"/>
+  <path id="jdk.classpath.11.0.3">
+    <fileset dir="${jdk.home.11.0.3}">
+      <include name="../jbr!/java.base"/>
+      <include name="../jbr!/java.compiler"/>
+      <include name="../jbr!/java.datatransfer"/>
+      <include name="../jbr!/java.desktop"/>
+      <include name="../jbr!/java.instrument"/>
+      <include name="../jbr!/java.logging"/>
+      <include name="../jbr!/java.management"/>
+      <include name="../jbr!/java.management.rmi"/>
+      <include name="../jbr!/java.naming"/>
+      <include name="../jbr!/java.net.http"/>
+      <include name="../jbr!/java.prefs"/>
+      <include name="../jbr!/java.rmi"/>
+      <include name="../jbr!/java.scripting"/>
+      <include name="../jbr!/java.se"/>
+      <include name="../jbr!/java.security.jgss"/>
+      <include name="../jbr!/java.security.sasl"/>
+      <include name="../jbr!/java.smartcardio"/>
+      <include name="../jbr!/java.sql"/>
+      <include name="../jbr!/java.sql.rowset"/>
+      <include name="../jbr!/java.transaction.xa"/>
+      <include name="../jbr!/java.xml"/>
+      <include name="../jbr!/java.xml.crypto"/>
+      <include name="../jbr!/javafx.base"/>
+      <include name="../jbr!/javafx.controls"/>
+      <include name="../jbr!/javafx.fxml"/>
+      <include name="../jbr!/javafx.graphics"/>
+      <include name="../jbr!/javafx.media"/>
+      <include name="../jbr!/javafx.swing"/>
+      <include name="../jbr!/javafx.web"/>
+      <include name="../jbr!/jdk.accessibility"/>
+      <include name="../jbr!/jdk.aot"/>
+      <include name="../jbr!/jdk.attach"/>
+      <include name="../jbr!/jdk.charsets"/>
+      <include name="../jbr!/jdk.compiler"/>
+      <include name="../jbr!/jdk.crypto.cryptoki"/>
+      <include name="../jbr!/jdk.crypto.ec"/>
+      <include name="../jbr!/jdk.dynalink"/>
+      <include name="../jbr!/jdk.httpserver"/>
+      <include name="../jbr!/jdk.internal.ed"/>
+      <include name="../jbr!/jdk.internal.jvmstat"/>
+      <include name="../jbr!/jdk.internal.le"/>
+      <include name="../jbr!/jdk.internal.vm.ci"/>
+      <include name="../jbr!/jdk.internal.vm.compiler"/>
+      <include name="../jbr!/jdk.internal.vm.compiler.management"/>
+      <include name="../jbr!/jdk.jdi"/>
+      <include name="../jbr!/jdk.jdwp.agent"/>
+      <include name="../jbr!/jdk.jfr"/>
+      <include name="../jbr!/jdk.jsobject"/>
+      <include name="../jbr!/jdk.localedata"/>
+      <include name="../jbr!/jdk.management"/>
+      <include name="../jbr!/jdk.management.agent"/>
+      <include name="../jbr!/jdk.management.jfr"/>
+      <include name="../jbr!/jdk.naming.dns"/>
+      <include name="../jbr!/jdk.naming.rmi"/>
+      <include name="../jbr!/jdk.net"/>
+      <include name="../jbr!/jdk.pack"/>
+      <include name="../jbr!/jdk.scripting.nashorn"/>
+      <include name="../jbr!/jdk.scripting.nashorn.shell"/>
+      <include name="../jbr!/jdk.sctp"/>
+      <include name="../jbr!/jdk.security.auth"/>
+      <include name="../jbr!/jdk.security.jgss"/>
+      <include name="../jbr!/jdk.unsupported"/>
+      <include name="../jbr!/jdk.xml.dom"/>
+      <include name="../jbr!/jdk.zipfs"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.11.0.3}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.11.0.3}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.11.0.3"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.leiningen:_camel-snake-kebab:0.4.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/camel-snake-kebab/camel-snake-kebab/0.4.0/camel-snake-kebab-0.4.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_cljfx:1.6.9.classpath">
+    <pathelement location="${path.variable.maven_repository}/cljfx/cljfx/1.6.9/cljfx-1.6.9.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_cljfx:1.6.9:jdk11.classpath">
+    <pathelement location="${path.variable.maven_repository}/cljfx/cljfx/1.6.9/cljfx-1.6.9-jdk11.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_clojure-complete:0.2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/clojure-complete/clojure-complete/0.2.5/clojure-complete-0.2.5.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_clucie:0.4.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/clucie/clucie/0.4.2/clucie-0.4.2.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_cnuernber/libpython-clj:1.36.classpath">
+    <pathelement location="${path.variable.maven_repository}/cnuernber/libpython-clj/1.36/libpython-clj-1.36.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_com.google.guava/guava:21.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/google/guava/guava/21.0/guava-21.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_com.hankcs.nlp/hanlp-lucene-plugin:1.1.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/hankcs/nlp/hanlp-lucene-plugin/1.1.6/hanlp-lucene-plugin-1.1.6.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_com.hankcs/hanlp:portable-1.7.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/hankcs/hanlp/portable-1.7.6/hanlp-portable-1.7.6.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_com.ibm.icu/icu4j:62.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/ibm/icu/icu4j/62.1/icu4j-62.1.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_com.taoensso/encore:2.93.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/taoensso/encore/2.93.0/encore-2.93.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_com.taoensso/nippy:2.14.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/taoensso/nippy/2.14.0/nippy-2.14.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_com.taoensso/truss:1.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/taoensso/truss/1.5.0/truss-1.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_com.tdunning/t-digest:3.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/tdunning/t-digest/3.2/t-digest-3.2.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_commons-codec:1.10.classpath">
+    <pathelement location="${path.variable.maven_repository}/commons-codec/commons-codec/1.10/commons-codec-1.10.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_it.unimi.dsi/fastutil:8.2.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/it/unimi/dsi/fastutil/8.2.1/fastutil-8.2.1.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_kixi/stats:0.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/kixi/stats/0.5.0/stats-0.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_net.java.dev.jna/jna:5.2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/java/dev/jna/jna/5.2.0/jna-5.2.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_net.jpountz.lz4/lz4:1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/net/jpountz/lz4/lz4/1.3/lz4-1.3.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_nrepl:0.6.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/nrepl/nrepl/0.6.0/nrepl-0.6.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.commons/commons-math3:3.6.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-analyzers-common:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-analyzers-common/7.5.0/lucene-analyzers-common-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-analyzers-icu:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-analyzers-icu/7.5.0/lucene-analyzers-icu-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-analyzers-kuromoji:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-analyzers-kuromoji/7.5.0/lucene-analyzers-kuromoji-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-analyzers-phonetic:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-analyzers-phonetic/7.5.0/lucene-analyzers-phonetic-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-analyzers-smartcn:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-analyzers-smartcn/7.5.0/lucene-analyzers-smartcn-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-analyzers-stempel:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-analyzers-stempel/7.5.0/lucene-analyzers-stempel-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-core:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-core/7.5.0/lucene-core-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-queries:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-queries/7.5.0/lucene-queries-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-queryparser:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-queryparser/7.5.0/lucene-queryparser-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.apache.lucene/lucene-sandbox:7.5.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/lucene/lucene-sandbox/7.5.0/lucene-sandbox-7.5.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/clojure:1.10.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/clojure/1.10.0/clojure-1.10.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/core.async:0.7.559.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/core.async/0.7.559/core.async-0.7.559.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/core.cache:0.8.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/core.cache/0.8.2/core.cache-0.8.2.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/core.memoize:0.8.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/core.memoize/0.8.2/core.memoize-0.8.2.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/core.specs.alpha:0.2.44.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/core.specs.alpha/0.2.44/core.specs.alpha-0.2.44.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/data.json:0.2.7.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/data.json/0.2.7/data.json-0.2.7.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/data.priority-map:0.0.7.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/data.priority-map/0.0.7/data.priority-map-0.0.7.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/java.jdbc:0.7.11.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/java.jdbc/0.7.11/java.jdbc-0.7.11.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/math.combinatorics:0.1.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/math.combinatorics/0.1.4/math.combinatorics-0.1.4.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/spec.alpha:0.2.176.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/spec.alpha/0.2.176/spec.alpha-0.2.176.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/test.check:0.9.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/test.check/0.9.0/test.check-0.9.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/tools.analyzer.jvm:0.7.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/tools.analyzer.jvm/0.7.3/tools.analyzer.jvm-0.7.3.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/tools.analyzer:0.7.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/tools.analyzer/0.7.0/tools.analyzer-0.7.0.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/tools.logging:0.4.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/tools.logging/0.4.1/tools.logging-0.4.1.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.clojure/tools.reader:1.1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/clojure/tools.reader/1.1.1/tools.reader-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.iq80.leveldb/leveldb-api:0.12.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/iq80/leveldb/leveldb-api/0.12/leveldb-api-0.12.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.iq80.leveldb/leveldb:0.12.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/iq80/leveldb/leveldb/0.12/leveldb-0.12.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.iq80.snappy/snappy:0.4.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/iq80/snappy/snappy/0.4/snappy-0.4.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.jsoup/jsoup:1.12.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jsoup/jsoup/1.12.1/jsoup-1.12.1.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-base:14.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-base/14/javafx-base-14.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-base:14:win.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-base/14/javafx-base-14-win.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-controls:14.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-controls/14/javafx-controls-14.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-controls:14:win.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-controls/14/javafx-controls-14-win.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-graphics:14.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-graphics/14/javafx-graphics-14.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-graphics:14:win.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-graphics/14/javafx-graphics-14-win.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-media:14.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-media/14/javafx-media-14.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-media:14:win.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-media/14/javafx-media-14-win.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-web:14.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-web/14/javafx-web-14.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.openjfx/javafx-web:14:win.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/openjfx/javafx-web/14/javafx-web-14-win.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.ow2.asm/asm:5.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/ow2/asm/asm/5.2/asm-5.2.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.tukaani/xz:1.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/tukaani/xz/1.6/xz-1.6.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_org.xerial/sqlite-jdbc:3.30.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/xerial/sqlite-jdbc/3.30.1/sqlite-jdbc-3.30.1.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_redux:0.1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/redux/redux/0.1.3/redux-0.1.3.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_techascent/tech.datatype:4.74.classpath">
+    <pathelement location="${path.variable.maven_repository}/techascent/tech.datatype/4.74/tech.datatype-4.74.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_techascent/tech.jna:3.23.classpath">
+    <pathelement location="${path.variable.maven_repository}/techascent/tech.jna/3.23/tech.jna-3.23.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_techascent/tech.parallel:2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/techascent/tech.parallel/2.5/tech.parallel-2.5.jar"/>
+  </path>
+  
+  <path id="library.leiningen:_techascent/tech.resource:4.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/techascent/tech.resource/4.6/tech.resource-4.6.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_exobrain.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.exobrain" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.exobrain" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

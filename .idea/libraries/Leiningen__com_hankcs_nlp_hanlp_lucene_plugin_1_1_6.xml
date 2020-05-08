@@ -4,6 +4,8 @@
       <root url="jar://$MAVEN_REPOSITORY$/com/hankcs/nlp/hanlp-lucene-plugin/1.1.6/hanlp-lucene-plugin-1.1.6.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/hankcs/nlp/hanlp-lucene-plugin/1.1.6/hanlp-lucene-plugin-1.1.6-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

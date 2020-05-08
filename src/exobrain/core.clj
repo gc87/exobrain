@@ -1,5 +1,7 @@
 (ns exobrain.core
-  (:require [clojure.java.io :as io]))
+  (:gen-class)
+  (:require [clojure.java.io :as io]
+            [exobrain.ui :as ui]))
 
 (defn env-init
   []
@@ -12,6 +14,11 @@
     (.mkdir (io/file rocksdb-dir))
     (.mkdir (io/file lucene-dir))))
 
+(defonce tray-icon (atom nil))
+
 (defn -main
   [& args]
-  (env-init))
+  (env-init)
+  (ui/make-tray-icon!))
+
+(comment )
