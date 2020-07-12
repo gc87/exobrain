@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.jogamp.jogl/jogl-all:2.3.2:natives-linux-armv6hf">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jogamp/jogl/jogl-all/2.3.2/jogl-all-2.3.2-natives-linux-armv6hf.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <MATHEMATICA_LIBRARY />
+    <SOURCES />
+  </library>
+</component>

@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/clojure/java.jdbc/0.7.11/java.jdbc-0.7.11.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/5.2/asm-5.2.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

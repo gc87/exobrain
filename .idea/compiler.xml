@@ -4,6 +4,13 @@
     <wildcardResourcePatterns>
       <entry name="!dev-resources:*" />
       <entry name="!resources:*" />
+      <entry name="!jcef.jar:*" />
+      <entry name="!gluegen-rt-natives-windows-amd64.jar:*" />
+      <entry name="!gluegen-rt.jar:*" />
+      <entry name="!jcef-tests.jar:*" />
+      <entry name="!jogl-all-natives-windows-amd64.jar:*" />
+      <entry name="!jogl-all.jar:*" />
+      <entry name="!*.jar:*" />
       <entry name="!?*.java" />
       <entry name="!?*.form" />
       <entry name="!?*.class" />

@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/clojure/data.json/0.2.7/data.json-0.2.7.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

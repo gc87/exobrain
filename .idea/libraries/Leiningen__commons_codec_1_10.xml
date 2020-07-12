@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.10/commons-codec-1.10.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/clojure-complete/clojure-complete/0.2.5/clojure-complete-0.2.5.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

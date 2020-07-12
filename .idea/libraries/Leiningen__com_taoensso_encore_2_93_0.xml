@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/com/taoensso/encore/2.93.0/encore-2.93.0.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

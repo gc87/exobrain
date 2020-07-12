@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/com/taoensso/nippy/2.14.0/nippy-2.14.0.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

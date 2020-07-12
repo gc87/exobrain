@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/techascent/tech.jna/3.23/tech.jna-3.23.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

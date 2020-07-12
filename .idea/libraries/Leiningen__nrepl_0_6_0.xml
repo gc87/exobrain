@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/nrepl/nrepl/0.6.0/nrepl-0.6.0.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

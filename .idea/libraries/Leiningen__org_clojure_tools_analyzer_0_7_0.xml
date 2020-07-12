@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/clojure/tools.analyzer/0.7.0/tools.analyzer-0.7.0.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

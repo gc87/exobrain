@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Leiningen: exobrain/jcef:83.4.0+gfd6631b+chromium-83.0.4103.106">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/exobrain/jcef/83.4.0+gfd6631b+chromium-83.0.4103.106/jcef-83.4.0+gfd6631b+chromium-83.0.4103.106.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <MATHEMATICA_LIBRARY />
+    <SOURCES />
+  </library>
+</component>

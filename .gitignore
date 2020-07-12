@@ -12,3 +12,6 @@ pom.xml.asc
 .hg/
 
 resources/python-3.7.6-embed-amd64
+resources/binary_distrib
+
+debug.log

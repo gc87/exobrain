@@ -4,6 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/clojure/core.cache/0.8.2/core.cache-0.8.2.jar!/" />
     </CLASSES>
     <JAVADOC />
+    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>
