@@ -1,16 +1,22 @@
 (ns exobrain.cef
   (:require [seesaw.core :as ss]
             [seesaw.dev :as ssd])
-  (:import (org.cef CefApp CefClient CefSettings)
+  (:import (org.cef CefApp CefClient CefSettings CefApp$CefAppState)
            (javax.swing JFrame)
-           (java.awt.event WindowAdapter)))
+           (java.awt.event WindowAdapter)
+           (org.cef.handler CefAppHandlerAdapter)
+           (com.sun.jna StringArray)))
 
-(defonce cef-app (atonil))
+(defonce cef-app (atom nil))
 
 (defn- init-cef-app
   [& args]
   (let [settings (CefSettings.)]
     (set! (.-windowless_rendering_enabled settings) false)
+    (CefApp/addAppHandler (proxy [CefAppHandlerAdapter] [nil]
+                            (stateHasChanged [state]
+                              (if (= (CefApp$CefAppState/TERMINATED) state)
+                                (println "CefApp Terminated.")))))
     (reset! cef-app (CefApp/getInstance settings))
     (when-not @cef-app
       (throw Exception))))
@@ -18,7 +24,7 @@
 (defn make-frame
   []
   (let [cef-client (.createClient @cef-app)
-        brower (.createBrowser cef-client "http://www.baidu.com" false false)
+        brower (.createBrowser cef-client "file:///C:/Users/chun/Documents/My%20Knowledge/temp/6d79be07-44e7-46a0-bd01-9e3b35221440/128/index.htm" false false)
         brower-ui (.getUIComponent brower)
         frame (ss/frame
                 :title "CEF Window"
