@@ -19,6 +19,6 @@
 (defn -main
   [& args]
   (env-init)
-  (ui/make-tray-icon!))
+  (ui/ui-initialize args))
 
 (comment )

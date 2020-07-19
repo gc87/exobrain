@@ -19,8 +19,9 @@
                  [org.jogamp.gluegen/gluegen-rt-main "2.3.2"]
                  [org.jogamp.jogl/jogl-all "2.3.2"]
                  [org.jogamp.jogl/jogl-all-main "2.3.2"]
-                 [exobrain/jcef "83.4.0+gfd6631b+chromium-83.0.4103.106"]]
+                 [local/jcef "83.4.0+gfd6631b+chromium-83.0.4103.106"]]
   :main exobrain.core
+  :java-source-paths ["java"]
   ;:aot [exobrain.core]
   :profiles {:uberjar {:aot :all}}
   ;:repl-options {:init-ns exobrain.core}

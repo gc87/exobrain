@@ -7,11 +7,16 @@
            (java.awt.event ActionEvent)
            (javax.swing JFrame JTextField)))
 
-(defn tray-supported?
+; 全局唯一SystemTray实例
+(defonce tray-icon (atom nil))
+
+(defn- tray-supported?
+  "测试系统是否支持SystemTray"
   []
   (. SystemTray isSupported))
 
-(defn icon-image
+(defn- icon-image
+  "根据文件生成image"
   [filename]
   (let [rc (io/resource filename)
         image (.getImage (Toolkit/getDefaultToolkit) rc)]
@@ -25,16 +30,16 @@
         (actionPerformed [event]
           (fn event))))))
 
-(defn popup-menu
-  []
+(defn- popup-menu
+  "创建默认的Tray菜单"
+  [menu-option]
+  (println menu-option)
   (let [menu-open (MenuItem. "打开 Exobrain")
         menu-cb-autostart (CheckboxMenuItem. "Auto start")
         menu-about (MenuItem. "关于")
         menu-exit (MenuItem. "退出 Exobrain")
         menu (PopupMenu.)]
-    (menu-action-listener menu-open (fn
-                                      [e]
-                                      ))
+    (menu-action-listener menu-open (:open menu-option))
     (.add menu menu-open)
 
     (.addSeparator menu)
@@ -42,9 +47,7 @@
 
     (.add menu menu-cb-autostart)
 
-    (menu-action-listener menu-about (fn
-                                       [e]
-                                       (JOptionPane/showMessageDialog nil "Exobrain-了不起的外脑")))
+    (menu-action-listener menu-about (:about menu-option))
     (.add menu menu-about)
 
     (.addSeparator menu)
@@ -52,11 +55,13 @@
     (.setFont menu (Font. Font/SERIF Font/PLAIN 14))
     menu))
 
-(defn make-tray-icon!
-  []
+(defn- gen-tray-icon
+  "使用默认设置生成SystemTray的实例"
+  [option]
+  (println option)
   (let [system-tray (SystemTray/getSystemTray)
-        image (icon-image "Pacman4.png")
-        tray-icon (TrayIcon. image "AKin-了不起的笔记软件" (popup-menu))]
+        image (icon-image (:image option))
+        tray-icon (TrayIcon. image "外脑辅助思考" (popup-menu (:menu option)))]
     (.setImageAutoSize tray-icon true)
     (.addMouseListener tray-icon (proxy [MouseAdapter] []
                                    (mouseClicked [event]
@@ -67,29 +72,28 @@
     (.add system-tray tray-icon)
     tray-icon))
 
+(defn make-tray-icon!
+  "建立SystemTray实例并添加到系统托盘显示"
+  [args option]
+  (when (tray-supported?)
+    (reset! tray-icon (gen-tray-icon option))))
+
 (defn reset-image!
-  [tray-icon image]
-  (.setImage tray-icon image))
+  "重新设置SystemTray的Icon，可以实现动态效果"
+  [image]
+  (when-not (nil? @tray-icon)
+    (.setImage tray-icon image)))
 
 (defn reset-popue-menu!
-  [tray-icon popue-menu]
-  (.setPopupMenu tray-icon popue-menu))
+  "重置SystemTray的弹出菜单"
+  [popue-menu]
+  (when-not (nil? @tray-icon)
+    (.setPopupMenu tray-icon popue-menu)))
 
 (defn delete-tray-icon!
-  [tray-icon]
-  (.remove (SystemTray/getSystemTray) tray-icon))
-
-(comment
-  (defonce tray-icon (atom nil))
-
-  (when (tray-supported?)
-    (reset! tray-icon (make-tray-icon!)))
-
+  "移除SystemTray"
+  []
   (when-not (nil? @tray-icon)
-    (reset-image! @tray-icon (icon-image "Clojure-icon.png")))
+    (.remove (SystemTray/getSystemTray) tray-icon)))
 
-  (when-not (nil? @tray-icon)
-    (reset-image! @tray-icon (icon-image "Pacman4.png")))
-
-  (when-not (nil? @tray-icon)
-    (delete-tray-icon! @tray-icon)))
+(comment )

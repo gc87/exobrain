@@ -1,26 +1,33 @@
 (ns exobrain.ui
-  (:require [exobrain.systemtray :as st]))
+  (:require [exobrain.systemtray :as st]
+            [exobrain.cef :as cef]
+            [seesaw.core :as ss]
+            [seesaw.dev :as ssd])
+  (:import (org.cef CefApp CefClient CefSettings)
+           (javax.swing JOptionPane)))
 
-(defonce tray-icon (atom nil))
+(defn ui-initialize
+  [& args]
+  (st/make-tray-icon! args {:image "Pacman4.png"
+                            :menu  {:open  (fn [event]
+                                             (ss/invoke-later (-> (cef/make-frame)
+                                                                  ;ss/pack!
+                                                                  ss/show!)))
+                                    :about (fn
+                                             [event]
+                                             (JOptionPane/showMessageDialog nil "Exobrain-了不起的外脑"))}})
+  (cef/cef-initialize args))
 
-(defn make-tray-icon!
-  []
-  (when (st/tray-supported?)
-    (reset! tray-icon (st/make-tray-icon!))))
+(defn ui-dispose
+  [& args]
+  (st/delete-tray-icon!)
+  (cef/cef-dispose))
 
-(defn reset-image!
-  [img]
-  (when-not (nil? @tray-icon)
-    (st/reset-image! @tray-icon (st/icon-image img))))
+(comment
+  (ssd/show-events (ss/frame))
 
-
-(when-not (nil? @tray-icon)
-  (st/reset-image! @tray-icon (st/icon-image "Pacman4.png")))
-
-(defn delete-tray-icon!
-  []
-  (when-not (nil? @tray-icon)
-    (st/delete-tray-icon! @tray-icon)))
-
-
+  (ui-initialize)
+  (ss/invoke-later (-> (make-frame)
+                       ss/pack!
+                       ss/show!)))
 
