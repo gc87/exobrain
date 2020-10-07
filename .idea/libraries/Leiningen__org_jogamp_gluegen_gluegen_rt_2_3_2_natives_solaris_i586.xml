@@ -4,7 +4,6 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/jogamp/gluegen/gluegen-rt/2.3.2/gluegen-rt-2.3.2-natives-solaris-i586.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <MATHEMATICA_LIBRARY />
     <SOURCES />
   </library>
 </component>

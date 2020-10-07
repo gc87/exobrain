@@ -1,5 +1,5 @@
 (ns exobrain.systemtray
-  (:require [clojure.java.io :as io] )
+  (:require [clojure.java.io :as io])
   (:import [java.awt SystemTray TrayIcon Toolkit PopupMenu MenuItem Menu CheckboxMenuItem Font]
            [java.awt.event ActionListener MouseAdapter MouseEvent]
            (javax.swing JMenuItem JPopupMenu JOptionPane)
@@ -96,4 +96,4 @@
   (when-not (nil? @tray-icon)
     (.remove (SystemTray/getSystemTray) tray-icon)))
 
-(comment )
+(comment)

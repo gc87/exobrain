@@ -1,6 +1,9 @@
 (ns exobrain.cef
   (:require [seesaw.core :as ss]
-            [seesaw.dev :as ssd])
+            [seesaw.dev :as ssd]
+            [seesaw.swingx :as swingx]
+            [seesaw.keymap :as km]
+            [clojure.java.io :as io])
   (:import (org.cef CefApp CefClient CefSettings CefApp$CefAppState)
            (javax.swing JFrame)
            (java.awt.event WindowAdapter)
@@ -28,6 +31,7 @@
         brower-ui (.getUIComponent brower)
         frame (ss/frame
                 :title "CEF Window"
+                :icon (io/resource "Pacman4.png")
                 ;:size [200 :by 500]
                 :width 600
                 :height 400
@@ -65,3 +69,9 @@
   []
   (-> (CefApp/getInstance)
       (.dispose)))
+
+(comment
+
+  (-> (make-frame1)
+      ss/pack!
+      ss/show!))

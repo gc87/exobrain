@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.janusgraph/janusgraph-core:0.5.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/janusgraph/janusgraph-core/0.5.2/janusgraph-core-0.5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

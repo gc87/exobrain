@@ -3,7 +3,7 @@
   (:require [clojure.java.io :as io]
             [exobrain.ui :as ui]))
 
-(defn env-init
+(defn env-initialize
   []
   (let [user-home (.getPath (io/file (System/getProperty "user.home" ) ".exobrain"))
         wiz-db-dir (io/file user-home "temp")
@@ -18,7 +18,7 @@
 
 (defn -main
   [& args]
-  (env-init)
+  (env-initialize)
   (ui/ui-initialize args))
 
 (comment )

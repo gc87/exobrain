@@ -14,6 +14,8 @@
                  [com.hankcs/hanlp "portable-1.7.6"]
                  [com.hankcs.nlp/hanlp-lucene-plugin "1.1.6"]
                  [cnuernber/libpython-clj "1.36"]
+                 [org.janusgraph/janusgraph-core "0.5.2"]
+                 [clojurewerkz/ogre "3.4.2.0"]
                  [seesaw "1.5.0"]
                  [org.jogamp.gluegen/gluegen-rt "2.3.2"]
                  [org.jogamp.gluegen/gluegen-rt-main "2.3.2"]

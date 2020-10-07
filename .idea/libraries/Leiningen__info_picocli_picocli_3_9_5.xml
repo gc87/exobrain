@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: info.picocli/picocli:3.9.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/info/picocli/picocli/3.9.5/picocli-3.9.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
